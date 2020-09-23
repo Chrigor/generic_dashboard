@@ -17,7 +17,7 @@ export const ContainerHeader = styled.div`
   display:flex;
   align-items:center;
   justify-content:center;
-  
+
   align-self:center;
 `;
 
@@ -72,4 +72,5 @@ export const IconDashboard = styled(GoGraph)`
 export const IconMenu = styled(GoRocket)`
   ${cssIcon}
   color: var(--white);
+  margin:0 8px;
 `
