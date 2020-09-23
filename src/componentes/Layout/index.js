@@ -8,12 +8,14 @@ import SideBar from "../SideBar";
 import Routes from "../../routes";
 
 function Layout() {
-  const { title, titleSideBar } = Config;
+  const { title, titleSideBar, grid } = Config;
+  const { columns } = grid;
+
   return (
     <Container>
       <Header title={title} />
       <SideBar title={titleSideBar} />
-      <Routes />
+      <Routes columns={columns}/>
     </Container>
   );
 }

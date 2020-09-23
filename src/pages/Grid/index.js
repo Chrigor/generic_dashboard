@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
 
-import { Container } from './styles';
+import { Container } from "./styles";
+import GridComponent from "../../componentes/Grid";
 
-function Grid() {
-  return <Container>
-    grid
-  </Container>;
+function Grid({ columns }) {
+  return (
+    <Container>
+      <GridComponent columns={columns}/>
+    </Container>
+  );
 }
 
 export default Grid;
