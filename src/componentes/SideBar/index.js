@@ -1,6 +1,5 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
-import PropTypes from "prop-types";
 import {
   Container,
   ContainerHeader,
@@ -8,12 +7,20 @@ import {
   List,
   Title,
   Line,
+  Linker,
   IconGrid,
   IconDashboard,
   IconMenu,
 } from "./styles";
 
-function SideBar({ title }) {
+
+
+import Config from "../../config";
+
+function SideBar() {
+  const { titleSideBar: title } = Config;
+  const [routeActive, setRouteActive] = useState('/');
+
   return (
     <Container>
       <ContainerHeader>
@@ -22,25 +29,21 @@ function SideBar({ title }) {
       </ContainerHeader>
       <Line />
       <List>
-        <ItemList active>
-          <IconGrid />
-          Grid
-        </ItemList>
-        <ItemList>
-          <IconDashboard />
-          Dashboard
-        </ItemList>
+        <Linker to="/" onClick={() => setRouteActive('/')}>
+          <ItemList active = {routeActive == "/" ? true : false}>
+            <IconGrid />
+            Grid
+          </ItemList>
+        </Linker>
+        <Linker to="/dashboard" onClick={() => setRouteActive('/dashboard')}>
+          <ItemList active = {routeActive == "/dashboard" ? true : false} >
+            <IconDashboard />
+            Dashboard
+          </ItemList>
+        </Linker>
       </List>
     </Container>
   );
 }
-
-SideBar.propTypes = {
-  title: PropTypes.string,
-};
-
-SideBar.defaultProps = {
-  title: "Dashboard",
-};
 
 export default SideBar;

@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 import { BsGrid1X2Fill } from "react-icons/bs";
 import { GoGraph, GoRocket } from "react-icons/go";
 
@@ -73,4 +74,8 @@ export const IconMenu = styled(GoRocket)`
   ${cssIcon}
   color: var(--white);
   margin:0 8px;
+`
+
+export const Linker = styled(Link)`
+  text-decoration:none;
 `

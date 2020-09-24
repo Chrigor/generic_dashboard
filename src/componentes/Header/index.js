@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from 'prop-types';
 
 import {
   Container,
@@ -9,7 +8,10 @@ import {
   IconNotification,
 } from "./styles";
 
-function Header({ title }) {
+import Config from "../../config";
+
+function Header() {
+  const { title } = Config;
   return (
     <Container>
       <TitleHeader>{title}</TitleHeader>
@@ -20,13 +22,5 @@ function Header({ title }) {
     </Container>
   );
 }
-
-Header.propTypes = {
-  title: PropTypes.string,
-};
-
-Header.defaultProps = {
-  title: 'Dashboard' 
-};
 
 export default Header;

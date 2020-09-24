@@ -3,25 +3,21 @@ import MUIDataTable from "mui-datatables";
 import { Container } from "./styles";
 import dados from "../../data.json";
 
-function Grid({ columns }) {
+import Config from "../../config";
+
+function Grid() {
   const [data, setData] = useState([]);
+  
+  const { grid } = Config;
+  const { columns, titleGrid, options } = grid;
 
   useEffect(() => {
-    setData(dados);
+    setData(dados); // esses dados deveram estar no redux
   }, []);
-
-  const options = {
-    filterType: "checkbox",
-  };
 
   return (
     <Container>
-      <MUIDataTable
-        title={"Employee List"}
-        data={data}
-        columns={columns}
-        options={options}
-      />
+      <MUIDataTable title={titleGrid} data={data} columns={columns} options={options}/>
     </Container>
   );
 }
