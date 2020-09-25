@@ -26,13 +26,15 @@ export default createGlobalStyle`
     --quinary: #0AAA96;
     --senary: #828386;
    
+   --backgroundChart: #27293D;
+
     --white: #fff;
     --gray: #8a8c90;
  
     --notification: #f84a4b;
-    --discord: #6e86d6;
+    --chart: #00D6B4;
     --mention-detail: #f9a839;
-    --mention-message: #413f3f;
+    --mention-message: #A035A1;
  
     --link: #5d80d6;
 
