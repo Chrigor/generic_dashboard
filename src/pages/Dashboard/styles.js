@@ -3,6 +3,8 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { FiCommand } from "react-icons/fi";
 import { BiBarChartAlt } from "react-icons/bi";
 
+import { Line } from "react-chartjs-2";
+
 export const Container = styled.div`
   grid-area: CG;
 
@@ -25,6 +27,7 @@ export const ContainerChart = styled.div`
   padding: 8px 12px;
 
   margin: 0px 12px 12px 0px;
+  box-sizing:border-box;
 `;
 
 export const TitleChart = styled.h1`
@@ -34,6 +37,8 @@ export const TitleChart = styled.h1`
 
   display: flex;
   align-items: center;
+
+  margin-bottom:16px;
 `;
 
 export const SubtitleChart = styled.h3`
@@ -72,3 +77,9 @@ export const IconChart = styled(BiBarChartAlt)`
   ${cssIcon}
   color:var(--chart);
 `;
+
+export const LineChart = styled(Line)`
+  height: 100%;
+  width: 100%;
+  max-height: 500px;
+`

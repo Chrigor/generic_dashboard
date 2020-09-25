@@ -8,7 +8,7 @@ export const Container = styled.div`
   background: var(--quaternary);
   border-radius: 8px;
 
-  padding: 8px;
+  padding: 16px;
 
   display: flex;
   flex-direction: column;
