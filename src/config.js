@@ -25,12 +25,20 @@ export default {
         label: "City",
         options: {
           filter: true,
-          sort: false,
+          sort: true,
         },
       },
       {
         name: "state",
         label: "State",
+        options: {
+          filter: true,
+          sort: false,
+        },
+      },
+      {
+        name: "Teste",
+        label: "Teste",
         options: {
           filter: true,
           sort: false,
@@ -43,6 +51,9 @@ export default {
       selectableRowsHeader: false,
       caseSensitive: false,
       selectableRows: false,
+      downloadOptions: {
+        filename: "Grid.csv"
+      }
     },
   },
 };

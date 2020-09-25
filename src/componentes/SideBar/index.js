@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState } from "react";
 
 import {
   Container,
@@ -13,13 +13,11 @@ import {
   IconMenu,
 } from "./styles";
 
-
-
 import Config from "../../config";
 
 function SideBar() {
   const { titleSideBar: title } = Config;
-  const [routeActive, setRouteActive] = useState('/');
+  const [routeActive, setRouteActive] = useState("/");
 
   return (
     <Container>
@@ -29,14 +27,14 @@ function SideBar() {
       </ContainerHeader>
       <Line />
       <List>
-        <Linker to="/" onClick={() => setRouteActive('/')}>
-          <ItemList active = {routeActive == "/" ? true : false}>
+        <Linker to="/" onClick={() => setRouteActive("/")}>
+          <ItemList active={routeActive === "/" ? true : false}>
             <IconGrid />
             Grid
           </ItemList>
         </Linker>
-        <Linker to="/dashboard" onClick={() => setRouteActive('/dashboard')}>
-          <ItemList active = {routeActive == "/dashboard" ? true : false} >
+        <Linker to="/dashboard" onClick={() => setRouteActive("/dashboard")}>
+          <ItemList active={routeActive === "/dashboard" ? true : false}>
             <IconDashboard />
             Dashboard
           </ItemList>
