@@ -8,6 +8,8 @@ import {
   IconChart,
   Header,
   LineChart,
+  BarChart,
+  HorizontalBarChart,
   TitleChart,
   SubtitleChart,
   Row,
@@ -22,9 +24,9 @@ function Dashboard() {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
       {
-        label: 'My First dataset',
+        label: "My First dataset",
         fill: false,
-        lineTension: 0.5,
+        lineTension: 0.3,
         backgroundColor: "rgba(75,192,192,0.4)",
         borderColor: "rgba(75,192,192,1)",
         borderCapStyle: "butt",
@@ -45,9 +47,9 @@ function Dashboard() {
   };
 
   const options = {
-    responsive:true,
+    responsive: true,
     legend: {
-      display:false,
+      display: false,
       labels: {
         fontColor: "gray",
         fontSize: 18,
@@ -59,7 +61,8 @@ function Dashboard() {
           ticks: {
             fontColor: "gray",
             fontSize: 18,
-            stepSize: 1,
+            stepSize: 15,
+            beginAtZero: true,
           },
         },
       ],
@@ -77,14 +80,16 @@ function Dashboard() {
 
   return (
     <Container>
-      <ContainerChart>
-        <Header>
-          <SubtitleChart>Total Shipments</SubtitleChart>
-          <TitleChart>Performance</TitleChart>
-
+      <Row>
+        <ContainerChart>
+          <Header>
+            <SubtitleChart>Total Shipments</SubtitleChart>
+            <TitleChart>Performance</TitleChart>
+          </Header>
           <LineChart height={60} data={dataChart} options={options} />
-        </Header>
-      </ContainerChart>
+        </ContainerChart>
+      </Row>
+
       <Row>
         <ContainerChart>
           <Header>
@@ -94,6 +99,7 @@ function Dashboard() {
               Performance
             </TitleChart>
           </Header>
+          <BarChart height={60} data={dataChart} options={options} />
         </ContainerChart>
 
         <ContainerChart>
@@ -104,6 +110,7 @@ function Dashboard() {
               Performance
             </TitleChart>
           </Header>
+          <HorizontalBarChart height={60} data={dataChart} options={options} />
         </ContainerChart>
 
         <ContainerChart>
@@ -114,6 +121,17 @@ function Dashboard() {
               Performance
             </TitleChart>
           </Header>
+          <LineChart height={60} data={dataChart} options={options} />
+        </ContainerChart>
+        <ContainerChart>
+          <Header>
+            <SubtitleChart>Total Shipments</SubtitleChart>
+            <TitleChart>
+              <IconChart />
+              Performance
+            </TitleChart>
+          </Header>
+          <LineChart height={60} data={dataChart} options={options} />
         </ContainerChart>
       </Row>
     </Container>

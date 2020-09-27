@@ -15,7 +15,14 @@ export const Container = styled.div`
     "SB CG"
     "SB CG";
   height: 100%;
-  background:var(--secondary);
+  background: var(--secondary);
+  box-sizing: border-box;
 
-  padding: 0px 20px 10px 20px;
+  @media (max-width: 1000px) {
+    grid-template-areas:
+    "MH MH"
+    "CG CG"
+    "CG CG"
+    "CG CG";
+  }
 `;

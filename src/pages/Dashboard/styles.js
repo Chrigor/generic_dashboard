@@ -3,7 +3,7 @@ import { IoMdNotificationsOutline } from "react-icons/io";
 import { FiCommand } from "react-icons/fi";
 import { BiBarChartAlt } from "react-icons/bi";
 
-import { Line } from "react-chartjs-2";
+import { Line, Bar, HorizontalBar } from "react-chartjs-2";
 
 export const Container = styled.div`
   grid-area: CG;
@@ -19,15 +19,19 @@ export const Container = styled.div`
 
 export const ContainerChart = styled.div`
   display: flex;
-  flex: 1;
-  min-height: 300px;
+  flex-direction:column;
+  width: 100%;
   background: var(--backgroundChart);
+
   border-radius: 8px;
 
   padding: 8px 12px;
-
   margin: 0px 12px 12px 0px;
   box-sizing:border-box;
+
+  /* min-width:500px;
+  flex-shrink: 0.6;
+  flex-grow: 0.6; */
 `;
 
 export const TitleChart = styled.h1`
@@ -38,7 +42,7 @@ export const TitleChart = styled.h1`
   display: flex;
   align-items: center;
 
-  margin-bottom:16px;
+  margin-bottom: 16px;
 `;
 
 export const SubtitleChart = styled.h3`
@@ -55,6 +59,16 @@ export const Header = styled.div`
 
 export const Row = styled.div`
   display: flex;
+
+  justify-content:center;
+  align-items:center;
+
+  @media (max-width: 1000px) {
+   flex-direction:column;
+  }
+
+  margin: 8px;
+
 `;
 
 const cssIcon = css`
@@ -79,7 +93,13 @@ export const IconChart = styled(BiBarChartAlt)`
 `;
 
 export const LineChart = styled(Line)`
-  height: 100%;
-  width: 100%;
-  max-height: 500px;
-`
+ 
+`;
+
+export const BarChart = styled(Bar)`
+ 
+`;
+
+export const HorizontalBarChart = styled(HorizontalBar)`
+ 
+`;
