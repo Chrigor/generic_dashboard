@@ -51,6 +51,9 @@ export default {
       },
     ],
     options: {
+      draggableColumns: {
+        enabled: true
+      },
       responsive: "vertical",
       tableBodyMaxHeight: "75vh",
       selectableRowsHeader: false,
