@@ -54,7 +54,7 @@ export default {
       draggableColumns: {
         enabled: true
       },
-      responsive: "vertical",
+      responsive: "simple",
       tableBodyMaxHeight: "75vh",
       selectableRowsHeader: false,
       caseSensitive: false,
@@ -103,6 +103,76 @@ export default {
     },
   },
   filtersInput: [
+    {
+      label: "Processo",
+      identificador: "process",
+      dataset: "ds_teste",
+      type: "text",
+      required: true,
+      change: function (event) {
+        console.log(event);
+      },
+    },
+    {
+      label: "Processo",
+      identificador: "process",
+      dataset: "ds_teste",
+      type: "text",
+      required: true,
+      change: function (event) {
+        console.log(event);
+      },
+    },
+    {
+      label: "Processo",
+      identificador: "process",
+      dataset: "ds_teste",
+      type: "text",
+      required: true,
+      change: function (event) {
+        console.log(event);
+      },
+    },
+    {
+      label: "Processo",
+      identificador: "process",
+      dataset: "ds_teste",
+      type: "text",
+      required: true,
+      change: function (event) {
+        console.log(event);
+      },
+    },
+    {
+      label: "Processo",
+      identificador: "process",
+      dataset: "ds_teste",
+      type: "text",
+      required: true,
+      change: function (event) {
+        console.log(event);
+      },
+    },
+    {
+      label: "Processo",
+      identificador: "process",
+      dataset: "ds_teste",
+      type: "text",
+      required: true,
+      change: function (event) {
+        console.log(event);
+      },
+    },
+    {
+      label: "Processo",
+      identificador: "process",
+      dataset: "ds_teste",
+      type: "text",
+      required: true,
+      change: function (event) {
+        console.log(event);
+      },
+    },
     {
       label: "Processo",
       identificador: "process",
