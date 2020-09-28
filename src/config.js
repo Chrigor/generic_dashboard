@@ -99,4 +99,45 @@ export default {
       },
     },
   },
+  filtersInput: [
+    {
+      label: "Processo",
+      identificador: "process",
+      dataset: "ds_teste",
+      type: "text",
+      required: true,
+      change: function (event) {
+        console.log(event);
+      },
+    },
+    {
+      label: "Responsável",
+      identificador: "responsavel",
+      type: "text",
+      required: true,
+      change: function (event) {
+        console.log(event);
+      },
+    },
+    {
+      label: "Quantidade registros",
+      identificador: "quantidadeRegistros",
+      type: "number",
+      required: false,
+      width: "200px",
+      change: function (event) {
+        console.log(event);
+      },
+    },
+    {
+      label: "Data",
+      identificador: "data",
+      type: "date",
+      required: true,
+      width: "200px",
+      change: function (event) {
+        console.log(event);
+      },
+    },
+  ],
 };

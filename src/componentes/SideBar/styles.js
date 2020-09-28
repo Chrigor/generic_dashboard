@@ -16,6 +16,7 @@ export const Container = styled.div`
   margin: 8px;
 
   min-width: 200px;
+  max-height: 90vh;
 `;
 
 export const ContainerHeader = styled.div`

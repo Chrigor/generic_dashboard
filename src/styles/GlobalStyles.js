@@ -12,6 +12,18 @@ export default createGlobalStyle`
     height: 100%;
     overflow-x:hidden;
     background: var(--secondary);
+
+    ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color:var(--quinary);
+    border-radius:4px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color:var(--secondary);
+  }
   }
 
   *, button, input {
@@ -24,7 +36,8 @@ export default createGlobalStyle`
     --primary: #36393f;
     --secondary:#1E1E2F;
     --tertiary: #BF15A6;
-    --quaternary: #2C68F5;
+    --quaternary: #364f6b; 
+    /* 1b263b */
     --quinary: #0AAA96;
     --senary: #828386;
    

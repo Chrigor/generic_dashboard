@@ -1,16 +1,49 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Container,
+  Button,
   ContainerBlur,
+  ContainerButtons,
   ContainerModal,
+  ContainerInput,
+  ContainerInputs,
+  Form,
+  LabelModal,
+  InputModal,
+  SelectModal,
   Header,
   IconClose,
   ModalBody,
   Title,
 } from "./styles";
 
+import Config from "../../config";
+
 function Modal({ setModal, title }) {
+  const { filtersInput } = Config;
+
+  const [form, setForm] = useState(
+    filtersInput.reduce((acc, field) => {
+      return {
+        ...acc,
+        [field.identificador]: "",
+      };
+    }, {})
+  );
+
+  function handleChange({ target }) {
+    const { value, id } = target;
+    setForm({ ...form, [id]: value });
+    console.log(form);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    console.log(form);
+  }
+
   return (
     <Container>
       <ContainerBlur />
@@ -22,7 +55,63 @@ function Modal({ setModal, title }) {
           </button>
         </Header>
         <ModalBody>
+          <Form onSubmit={handleSubmit}>
+            <ContainerInputs>
+              {filtersInput.map(
+                ({
+                  label,
+                  identificador,
+                  dataset,
+                  change,
+                  type,
+                  required,
+                  width,
+                }) => {
+                  return (
+                    <ContainerInput key={identificador}>
+                      <LabelModal>{label}</LabelModal>
+                      {dataset && (
+                        <SelectModal
+                          id={identificador}
+                          name={identificador}
+                          value={form[identificador]}
+                          required={required}
+                          width={width ? width : ""}
+                          onChange={(event) => {
+                            handleChange(event);
+                            change(event);
+                          }}
+                        >
+                          <option value="">Selecione uma opção</option>
+                          <option value="2">2</option>
+                        </SelectModal>
+                      )}
 
+                      {!dataset && (
+                        <InputModal
+                          id={identificador}
+                          name={identificador}
+                          value={form[identificador]}
+                          type={type}
+                          required={required}
+                          width={width ? width : ""}
+                          onChange={(event) => {
+                            handleChange(event);
+                            change(event);
+                          }}
+                        />
+                      )}
+                    </ContainerInput>
+                  );
+                }
+              )}
+            </ContainerInputs>
+
+            <ContainerButtons>
+              <Button type="submit">Enviar</Button>
+              <Button onClick={() => setModal(false)}>Cancelar</Button>
+            </ContainerButtons>
+          </Form>
         </ModalBody>
       </ContainerModal>
     </Container>
