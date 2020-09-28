@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Container,
@@ -19,13 +19,19 @@ import { useSelector } from "react-redux";
 
 function Dashboard() {
   const data = useSelector((state) => state.grid.data);
+  const [gradient, setGradient] = useState("transparent");
+
+  useEffect(() => {
+    console.log('Hoi');
+  }, []);
 
   const dataChart = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
       {
         label: "My First dataset",
-        fill: false,
+        fill:false,
+        fillColor: gradient,
         lineTension: 0.3,
         backgroundColor: "rgba(75,192,192,0.4)",
         borderColor: "rgba(75,192,192,1)",
@@ -41,7 +47,7 @@ function Dashboard() {
         pointHoverBorderWidth: 2,
         pointRadius: 1,
         pointHitRadius: 10,
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: [65, 59, 90, 81, 56, 55, 40],
       },
     ],
   };
@@ -78,6 +84,23 @@ function Dashboard() {
     },
   };
 
+  const dataBarChart = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [
+      {
+        label: "My First dataset",
+        backgroundColor: "transparent",
+        borderColor: "rgba(75,192,192,0.8)",
+        borderWidth: 1.5,
+        hoverBorderColor: "rgba(75,192,192,1)",
+        hoverBorderWidth: 2.5,
+        borderCapStyle: "butt",
+        borderDashOffset: 0.0,
+        data: [65, 59, 80, 81, 56, 55, 40],
+      },
+    ],
+  };
+
   return (
     <Container>
       <Row>
@@ -99,7 +122,7 @@ function Dashboard() {
               Performance
             </TitleChart>
           </Header>
-          <BarChart height={60} data={dataChart} options={options} />
+          <LineChart height={90} data={dataChart} options={options} />
         </ContainerChart>
 
         <ContainerChart>
@@ -110,7 +133,7 @@ function Dashboard() {
               Performance
             </TitleChart>
           </Header>
-          <HorizontalBarChart height={60} data={dataChart} options={options} />
+          <BarChart height={90} data={dataBarChart} options={options} />
         </ContainerChart>
 
         <ContainerChart>
@@ -121,17 +144,7 @@ function Dashboard() {
               Performance
             </TitleChart>
           </Header>
-          <LineChart height={60} data={dataChart} options={options} />
-        </ContainerChart>
-        <ContainerChart>
-          <Header>
-            <SubtitleChart>Total Shipments</SubtitleChart>
-            <TitleChart>
-              <IconChart />
-              Performance
-            </TitleChart>
-          </Header>
-          <LineChart height={60} data={dataChart} options={options} />
+          <LineChart height={90} data={dataChart} options={options} />
         </ContainerChart>
       </Row>
     </Container>

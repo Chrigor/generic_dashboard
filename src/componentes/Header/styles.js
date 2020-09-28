@@ -9,6 +9,11 @@ export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  position: sticky;
+  top:0;
+  left:0;
+  z-index:2;
 `;
 
 export const TitleHeader = styled.h1`

@@ -29,9 +29,8 @@ export const ContainerChart = styled.div`
   margin: 0px 12px 12px 0px;
   box-sizing:border-box;
 
-  /* min-width:500px;
-  flex-shrink: 0.6;
-  flex-grow: 0.6; */
+  min-width:600px;
+  min-height: 300px;
 `;
 
 export const TitleChart = styled.h1`
