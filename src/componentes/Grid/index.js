@@ -6,7 +6,6 @@ import Config from "../../config";
 import { useSelector } from "react-redux";
 
 function Grid() {
-
   const data = useSelector((state) => state.grid.data);
 
   const { grid } = Config;

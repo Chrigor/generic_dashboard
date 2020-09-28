@@ -15,14 +15,19 @@ import {
   Row,
 } from "./styles";
 
+import Config from "../../config";
+
 import { useSelector } from "react-redux";
 
 function Dashboard() {
   const data = useSelector((state) => state.grid.data);
   const [gradient, setGradient] = useState("transparent");
 
+  const { dashboard } = Config;
+  const { options } = dashboard;
+
   useEffect(() => {
-    console.log('Hoi');
+    console.log("Hoi");
   }, []);
 
   const dataChart = {
@@ -30,7 +35,7 @@ function Dashboard() {
     datasets: [
       {
         label: "My First dataset",
-        fill:false,
+        fill: false,
         fillColor: gradient,
         lineTension: 0.3,
         backgroundColor: "rgba(75,192,192,0.4)",
@@ -50,38 +55,6 @@ function Dashboard() {
         data: [65, 59, 90, 81, 56, 55, 40],
       },
     ],
-  };
-
-  const options = {
-    responsive: true,
-    legend: {
-      display: false,
-      labels: {
-        fontColor: "gray",
-        fontSize: 18,
-      },
-    },
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            fontColor: "gray",
-            fontSize: 18,
-            stepSize: 15,
-            beginAtZero: true,
-          },
-        },
-      ],
-      xAxes: [
-        {
-          ticks: {
-            fontColor: "gray",
-            fontSize: 14,
-            stepSize: 1,
-          },
-        },
-      ],
-    },
   };
 
   const dataBarChart = {
