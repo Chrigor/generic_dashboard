@@ -95,7 +95,7 @@ function Dashboard() {
               Performance
             </TitleChart>
           </Header>
-          <LineChart height={90} data={dataChart} options={options} />
+          <LineChart height={80} data={dataChart} options={options} />
         </ContainerChart>
 
         <ContainerChart>
@@ -106,7 +106,7 @@ function Dashboard() {
               Performance
             </TitleChart>
           </Header>
-          <BarChart height={90} data={dataBarChart} options={options} />
+          <BarChart height={80} data={dataBarChart} options={options} />
         </ContainerChart>
 
         <ContainerChart>
@@ -117,7 +117,7 @@ function Dashboard() {
               Performance
             </TitleChart>
           </Header>
-          <LineChart height={90} data={dataChart} options={options} />
+          <LineChart height={80} data={dataChart} options={options} />
         </ContainerChart>
       </Row>
     </Container>

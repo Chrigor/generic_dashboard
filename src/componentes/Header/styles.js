@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components";
-import { BiSearchAlt } from "react-icons/bi";
+import { BsFilter } from "react-icons/bs";
 import { RiNotificationFill } from "react-icons/ri";
 
 export const Container = styled.div`
-  background: var(--secondary);
   grid-area: MH;
 
+  background: var(--secondary);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,6 +14,8 @@ export const Container = styled.div`
   top:0;
   left:0;
   z-index:2;
+
+  width: 100%;
 `;
 
 export const TitleHeader = styled.h1`
@@ -38,9 +40,15 @@ const cssIcon = css`
   height: 32px;
   width: 32px;
   cursor:pointer;
+
+  transition: all 300ms;
+
+  &:hover {
+    color:var(--quinary);
+  }
 `;
 
-export const IconSearch = styled(BiSearchAlt)`
+export const IconFilter = styled(BsFilter)`
   ${cssIcon}
 `;
 

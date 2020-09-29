@@ -19,19 +19,19 @@ export const Container = styled.div`
   ::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   ::-webkit-scrollbar-thumb {
-    background-color:var(--quinary);
-    border-radius:4px;
+    background-color: var(--quinary);
+    border-radius: 4px;
   }
   ::-webkit-scrollbar-track {
-    background-color:var(--secondary);
+    background-color: var(--secondary);
   }
 `;
 
 export const ContainerChart = styled.div`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   width: 100%;
   background: var(--backgroundChart);
 
@@ -39,10 +39,27 @@ export const ContainerChart = styled.div`
 
   padding: 8px 12px;
   margin: 0px 12px 12px 0px;
-  box-sizing:border-box;
+  box-sizing: border-box!important;
 
-  min-width:600px;
-  min-height: 300px;
+  min-width: 300px;
+  min-height: 200px;
+
+
+  > canvas {
+    max-height: 500px!important;
+    max-width: 100%!important;
+  }
+
+  @media (max-width: 1554px) {
+    width: 100%!important;
+    height: 50vh!important;
+    > canvas {
+      width: 100%!important;
+      height: 70%!important;
+      box-sizing:border-box!important;
+    }
+  }
+
 `;
 
 export const TitleChart = styled.h1`
@@ -71,15 +88,15 @@ export const Header = styled.div`
 export const Row = styled.div`
   display: flex;
 
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
 
-  @media (max-width: 1000px) {
-   flex-direction:column;
+
+  @media (max-width: 1554px) {
+    flex-direction: column;
   }
 
   margin: 8px;
-
 `;
 
 const cssIcon = css`
@@ -103,14 +120,8 @@ export const IconChart = styled(BiBarChartAlt)`
   color:var(--chart);
 `;
 
-export const LineChart = styled(Line)`
- 
-`;
+export const LineChart = styled(Line)``;
 
-export const BarChart = styled(Bar)`
- 
-`;
+export const BarChart = styled(Bar)``;
 
-export const HorizontalBarChart = styled(HorizontalBar)`
- 
-`;
+export const HorizontalBarChart = styled(HorizontalBar)``;

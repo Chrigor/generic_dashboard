@@ -4,7 +4,7 @@ import {
   Container,
   ContainerExtra,
   TitleHeader,
-  IconSearch,
+  IconFilter,
   IconNotification,
 } from "./styles";
 
@@ -25,7 +25,7 @@ function Header() {
       <Container>
         <TitleHeader>{title}</TitleHeader>
         <ContainerExtra>
-          <IconSearch onClick={handleClickFilter} />
+          <IconFilter onClick={handleClickFilter} />
           <IconNotification />
         </ContainerExtra>
       </Container>

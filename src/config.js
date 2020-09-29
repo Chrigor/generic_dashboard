@@ -71,7 +71,14 @@ export default {
   },
   dashboard: {
     options: {
-      responsive: true,
+      // responsive: true,
+      maintainAspectRatio:true,
+      // aspectRatio:2,
+      onResize:function(chart){
+        // chart.canvas.parentNode.style.height = '70%';
+        // chart.canvas.parentNode.style.width = '100%';
+        console.log(chart);
+      },
       legend: {
         display: false,
         labels: {
@@ -85,7 +92,7 @@ export default {
             ticks: {
               fontColor: "gray",
               fontSize: 18,
-              stepSize: 15,
+              stepSize: 30,
               beginAtZero: true,
             },
           },
@@ -106,6 +113,7 @@ export default {
     {
       label: "Processo",
       identificador: "process",
+      constraintName: "process",
       dataset: "ds_teste",
       type: "text",
       required: true,
@@ -113,79 +121,11 @@ export default {
         console.log(event);
       },
     },
-    {
-      label: "Processo",
-      identificador: "process",
-      dataset: "ds_teste",
-      type: "text",
-      required: true,
-      change: function (event) {
-        console.log(event);
-      },
-    },
-    {
-      label: "Processo",
-      identificador: "process",
-      dataset: "ds_teste",
-      type: "text",
-      required: true,
-      change: function (event) {
-        console.log(event);
-      },
-    },
-    {
-      label: "Processo",
-      identificador: "process",
-      dataset: "ds_teste",
-      type: "text",
-      required: true,
-      change: function (event) {
-        console.log(event);
-      },
-    },
-    {
-      label: "Processo",
-      identificador: "process",
-      dataset: "ds_teste",
-      type: "text",
-      required: true,
-      change: function (event) {
-        console.log(event);
-      },
-    },
-    {
-      label: "Processo",
-      identificador: "process",
-      dataset: "ds_teste",
-      type: "text",
-      required: true,
-      change: function (event) {
-        console.log(event);
-      },
-    },
-    {
-      label: "Processo",
-      identificador: "process",
-      dataset: "ds_teste",
-      type: "text",
-      required: true,
-      change: function (event) {
-        console.log(event);
-      },
-    },
-    {
-      label: "Processo",
-      identificador: "process",
-      dataset: "ds_teste",
-      type: "text",
-      required: true,
-      change: function (event) {
-        console.log(event);
-      },
-    },
+    
     {
       label: "Responsável",
       identificador: "responsavel",
+      constraintName: "responsavel",
       type: "text",
       required: true,
       change: function (event) {
@@ -195,6 +135,7 @@ export default {
     {
       label: "Quantidade registros",
       identificador: "quantidadeRegistros",
+      constraintName: "registros",
       type: "number",
       required: false,
       width: "200px",
@@ -205,6 +146,7 @@ export default {
     {
       label: "Data",
       identificador: "data",
+      constraintName: "dataLimite",
       type: "date",
       required: true,
       width: "200px",

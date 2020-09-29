@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Container,
@@ -18,6 +18,10 @@ import Config from "../../config";
 function SideBar() {
   const { titleSideBar: title } = Config;
   const [routeActive, setRouteActive] = useState("/");
+
+  useEffect(() => {
+   setRouteActive(window.location.pathname);
+  }, []);
 
   return (
     <Container>

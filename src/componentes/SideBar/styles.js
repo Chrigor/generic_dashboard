@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { BsGrid1X2Fill } from "react-icons/bs";
 import { GoGraph, GoRocket } from "react-icons/go";
 
-export const Container = styled.div`
+export const Container = styled.nav`
   grid-area: SB;
   background: var(--quaternary);
   border-radius: 8px;
@@ -17,6 +17,10 @@ export const Container = styled.div`
 
   min-width: 200px;
   max-height: 90vh;
+
+  @media (max-width: 1000px) {
+    display:none;
+  }
 `;
 
 export const ContainerHeader = styled.div`

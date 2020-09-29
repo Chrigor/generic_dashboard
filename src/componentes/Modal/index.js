@@ -27,15 +27,17 @@ function Modal({ setModal, title }) {
     filtersInput.reduce((acc, field) => {
       return {
         ...acc,
-        [field.identificador]: "",
+        [field.identificador]: ""
       };
     }, {})
   );
 
   function handleChange({ target }) {
     const { value, id } = target;
+    const nameConstraint = target.getAttribute("data-constraint-name");
+
+    console.log(nameConstraint);
     setForm({ ...form, [id]: value });
-    console.log(form);
   }
 
   function handleSubmit(event) {
@@ -66,6 +68,7 @@ function Modal({ setModal, title }) {
                   type,
                   required,
                   width,
+                  constraintName,
                 }) => {
                   return (
                     <ContainerInput key={identificador}>
@@ -77,6 +80,7 @@ function Modal({ setModal, title }) {
                           value={form[identificador]}
                           required={required}
                           width={width ? width : ""}
+                          data-constraint-name={constraintName}
                           onChange={(event) => {
                             handleChange(event);
                             change(event);
@@ -95,6 +99,7 @@ function Modal({ setModal, title }) {
                           type={type}
                           required={required}
                           width={width ? width : ""}
+                          data-constraint-name={constraintName}
                           onChange={(event) => {
                             handleChange(event);
                             change(event);

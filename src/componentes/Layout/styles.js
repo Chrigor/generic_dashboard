@@ -18,6 +18,8 @@ export const Container = styled.div`
   background: var(--secondary);
   box-sizing: border-box;
 
+  margin: 0 auto;
+
   @media (max-width: 1000px) {
     grid-template-areas:
     "MH MH"

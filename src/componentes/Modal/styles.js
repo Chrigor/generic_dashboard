@@ -93,6 +93,11 @@ export const IconClose = styled(FaWindowClose)`
   color: var(--white);
   height: 24px;
   width: 24px;
+  transition: all 300ms;
+
+  &:hover {
+    color:var(--quinary);
+  }
 `;
 
 export const ContainerInputs = styled.div`
@@ -168,7 +173,7 @@ export const Button = styled.button`
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 
-  transition: all 300ms ease-in-out;
+  transition: all 500ms ease-in-out;
 
   background-image: linear-gradient(45deg, var(--quinary) 50%, transparent 50%);
   background-position: 100%;
