@@ -9,7 +9,6 @@ import {
   Header,
   LineChart,
   BarChart,
-  HorizontalBarChart,
   TitleChart,
   SubtitleChart,
   Row,

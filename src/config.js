@@ -3,6 +3,11 @@ import React from "react";
 export default {
   title: "Dashboard",
   titleSideBar: "Menu",
+  FLUIG_SERVER: "http://vipalnet-teste.vipal.com.br",
+  AUTH_CONSUMER_KEY_POST: "consumerKey",
+  AUTH_TOKEN_POST:"011278a6-e135-439b-9719-63fc4d8328b7",
+  AUTH_CONSUMER_SECRET_KEY_POST:"testeDatasetSecret",
+  AUTH_TOKEN_SECRET_POST:"2412cb85-e1b6-49cc-adee-25a057ba17647ae99651-ef4f-4657-ac66-d309a879d5c2",
   grid: {
     titleGrid: "Process Example",
     columns: [
