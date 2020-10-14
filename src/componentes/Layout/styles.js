@@ -21,10 +21,14 @@ export const Container = styled.div`
   margin: 0 auto;
 
   @media (max-width: 1000px) {
+    grid-template-columns: 250px auto; /* este auto deixa o tamanho automatico (pega todo espaco disponivel) */
+    grid-template-rows: 80px auto auto auto auto;
+
     grid-template-areas:
-    "MH MH"
-    "CG CG"
-    "CG CG"
-    "CG CG";
+      "MH MH"
+      "SB SB"
+      "CG CG"
+      "CG CG"
+      "CG CG";
   }
 `;

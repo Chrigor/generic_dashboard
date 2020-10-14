@@ -18,17 +18,23 @@ export const Container = styled.nav`
   min-width: 200px;
   max-height: 90vh;
 
-  @media (max-width: 1000px) {
-    display:none;
-  }
+
+  /* @media (max-width: 1000px) {
+    width: 100%;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-around;
+    height: 50px;
+  } */
 `;
 
 export const ContainerHeader = styled.div`
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  align-self:center;
+  align-self: center;
 `;
 
 export const Title = styled.h1`
@@ -38,7 +44,17 @@ export const Title = styled.h1`
   color: var(--white);
 `;
 
-export const List = styled.ul``;
+export const List = styled.ul`
+  @media (max-width: 1000px) {
+    display:flex;
+    width: 100%;
+    flex-direction: row;
+
+    align-items: center;
+    justify-content: space-around;
+    /* height: 50px; */
+  }
+`;
 
 export const Line = styled.div`
   width: 90%;
@@ -68,7 +84,7 @@ export const ItemList = styled.li`
 const cssIcon = css`
   height: 24px;
   width: 24px;
-  margin:0px 16px;
+  margin: 0px 16px;
 `;
 
 export const IconGrid = styled(BsGrid1X2Fill)`
@@ -82,9 +98,9 @@ export const IconDashboard = styled(GoGraph)`
 export const IconMenu = styled(GoRocket)`
   ${cssIcon}
   color: var(--white);
-  margin:0 8px;
-`
+  margin: 0 8px;
+`;
 
 export const Linker = styled(Link)`
-  text-decoration:none;
-`
+  text-decoration: none;
+`;

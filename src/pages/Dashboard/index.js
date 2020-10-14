@@ -82,17 +82,17 @@ function Dashboard() {
             <SubtitleChart>Total Shipments</SubtitleChart>
             <TitleChart>Performance</TitleChart>
           </Header>
-          <LineChart height={60} data={dataChart} options={options} />
+          <LineChart height={70} data={dataChart} options={options} />
         </ContainerChart>
       </Row>
 
       <Row>
         <ContainerChart>
           <Header>
-            <SubtitleChart>Total Shipments</SubtitleChart>
+            <SubtitleChart>Total Status</SubtitleChart>
             <TitleChart>
               <IconNotify />
-              Performance
+              Status
             </TitleChart>
           </Header>
           <LineChart height={80} data={dataChart} options={options} />
@@ -100,10 +100,10 @@ function Dashboard() {
 
         <ContainerChart>
           <Header>
-            <SubtitleChart>Total Shipments</SubtitleChart>
+            <SubtitleChart>Total FON</SubtitleChart>
             <TitleChart>
               <IconCommand />
-              Performance
+              FON
             </TitleChart>
           </Header>
           <BarChart height={80} data={dataBarChart} options={options} />
@@ -111,10 +111,10 @@ function Dashboard() {
 
         <ContainerChart>
           <Header>
-            <SubtitleChart>Total Shipments</SubtitleChart>
+            <SubtitleChart>Total Nothing</SubtitleChart>
             <TitleChart>
               <IconChart />
-              Performance
+              Nothing
             </TitleChart>
           </Header>
           <LineChart height={80} data={dataChart} options={options} />

@@ -60,6 +60,16 @@ export const ContainerChart = styled.div`
     }
   }
 
+  @media (max-width: 759px) {
+    width: 100%!important;
+    height: 250px!important;
+    > canvas {
+      width: 100%!important;
+      height: 100%!important;
+      box-sizing:border-box!important;
+    }
+  }
+
 `;
 
 export const TitleChart = styled.h1`
