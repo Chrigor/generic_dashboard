@@ -42,6 +42,7 @@ export default createGlobalStyle`
     --senary: #828386;
    
    --backgroundChart: #27293D;
+   --backgroundLoading: rgba(39, 41, 61, 0.6);
 
     --white: #fff;
     --gray: #8a8c90;

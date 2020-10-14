@@ -8,12 +8,26 @@ export default {
   AUTH_TOKEN_POST:"011278a6-e135-439b-9719-63fc4d8328b7",
   AUTH_CONSUMER_SECRET_KEY_POST:"testeDatasetSecret",
   AUTH_TOKEN_SECRET_POST:"2412cb85-e1b6-49cc-adee-25a057ba17647ae99651-ef4f-4657-ac66-d309a879d5c2",
+  dataset: "ds_ConsultaDB0003",
   grid: {
     titleGrid: "Process Example",
     columns: [
       {
-        name: "requester",
-        label: "Requester",
+        name: "CodigoProjeto",
+        label: "Código Projeto",
+        options: {
+          filter: true,
+          sort: true,
+          customBodyRender: function (value, tableMeta, updateValue) {
+            const url = `http://vipalnet-teste.vipal.com.br/portal/p/1/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=${value} target="_blank"`
+          
+            return <a href={url}> {value}</a>;
+          }
+        },
+      },
+      {
+        name: "NomeDemanda",
+        label: "Nome Demanda",
         options: {
           filter: true,
           sort: true,
@@ -23,29 +37,18 @@ export default {
         },
       },
       {
-        name: "dateStart",
-        label: "Start Date",
+        name: "Prioridade",
+        label: "Prioridade",
         options: {
           filter: true,
           sort: true,
-          customBodyRender: function (value, tableMeta, updateValue) {
-            return <p> {new Date(value).toLocaleDateString()}</p>;
-          },
+          // customBodyRender: function (value, tableMeta, updateValue) {
+          //   return <p> eae {value}</p>;
+          // }
         },
       },
       {
-        name: "dateEnd",
-        label: "Final Date",
-        options: {
-          filter: true,
-          sort: true,
-          customBodyRender: function (value, tableMeta, updateValue) {
-            return <p> {new Date(value).toLocaleDateString()}</p>;
-          },
-        },
-      },
-      {
-        name: "status",
+        name: "Status",
         label: "Status",
         options: {
           filter: true,
@@ -53,11 +56,76 @@ export default {
         },
       },
       {
-        name: "responsible",
-        label: "Responsible",
+        name: "Area",
+        label: "Area",
         options: {
           filter: true,
           sort: true,
+          // customBodyRender: function (value, tableMeta, updateValue) {
+          //   return <p> eae {value}</p>;
+          // }
+        },
+      },
+      {
+        name: "Diretoria",
+        label: "Diretoria",
+        options: {
+          filter: true,
+          sort: true,
+        },
+      },
+      {
+        name: "Responsavel",
+        label: "Responsavel",
+        options: {
+          filter: true,
+          sort: true,
+        },
+      },
+      {
+        name: "Solicitante",
+        label: "Solicitante",
+        options: {
+          filter: true,
+          sort: true,
+        },
+      },
+      {
+        name: "ValorOrcado",
+        label: "Valor Orcado",
+        options: {
+          filter: true,
+          sort: true,
+        },
+      },
+      {
+        name: "HorasDesenvolvimento",
+        label: "Horas Dev",
+        options: {
+          filter: true,
+          sort: true,
+        },
+      },
+      {
+        name: "DataAbertura",
+        label: "Data de Abertura",
+        options: {
+          filter: true,
+          sort: true,
+          customBodyRender: function (value, tableMeta, updateValue) {
+            return <p> {new Date(value).toLocaleDateString()}</p>;
+          },
+        },
+      },
+      {
+        name: "Prazo",
+        label: "Prazo",
+        options: {
+          filter: true,
+          sort: true,
+          customBodyRender: function (value, tableMeta, updateValue) {
+            return <p> {new Date(value).toLocaleDateString()}</p>;
+          },
         },
       },
     ],
