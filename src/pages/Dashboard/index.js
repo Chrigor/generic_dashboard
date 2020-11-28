@@ -20,7 +20,6 @@ import { useSelector } from "react-redux";
 
 function Dashboard() {
   const data = useSelector((state) => state.grid.data);
-  const [gradient, setGradient] = useState("transparent");
   const [chartMain, setChartMain] = useState({});
   const [chartSecond, setChartSecond] = useState({});
   const [chartThird, setChartThird] = useState({});
@@ -53,7 +52,7 @@ function Dashboard() {
             <SubtitleChart>Total</SubtitleChart>
             <TitleChart>Total de ocorrencias por mês</TitleChart>
           </Header>
-          <LineChart height={70} data={chartMain} options={options} />
+          <LineChart height={65} data={chartMain} options={options} />
         </ContainerChart>
       </Row>
 

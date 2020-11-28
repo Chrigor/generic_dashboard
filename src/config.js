@@ -47,7 +47,7 @@ export default {
           sort: true,
           customBodyRender: function (value, tableMeta, updateValue) {
             return <p>{value > 3 ? 1 : value}</p>;
-          }
+          },
         },
       },
       {
@@ -58,10 +58,10 @@ export default {
           sort: true,
           customBodyRender: function (value, tableMeta, updateValue) {
             return <p>{value > 3 ? 1 : value}</p>;
-          }
+          },
         },
       },
-   
+
       {
         name: "Status",
         label: "Status",
@@ -154,9 +154,6 @@ export default {
       selectableRowsHeader: false,
       caseSensitive: false,
       selectableRows: false,
-      downloadOptions: {
-        filename: "Grid.csv",
-      },
       onFilterChange: (changedColumn, filterList) => {
         console.log("Filter .... ");
         console.log("Salvar filtros ou data filtrada no redux ... ");
@@ -202,7 +199,7 @@ export default {
   },
   dashboard: {
     options: {
-      pointLabelFontSize : 20,
+      pointLabelFontSize: 20,
       responsive: true,
       maintainAspectRatio: true,
       // aspectRatio:2,
@@ -222,16 +219,19 @@ export default {
         yAxes: [
           {
             ticks: {
+              lineHeight:2,
+              fontSize: 12,
+              fontStyle: "bold",
+              precision: 5,
+              suggestedMin: 0,
               fontColor: "gray",
-              fontSize: 18,
-              // stepSize: 50,
+              // stepSize: 100,
               beginAtZero: true,
               callback: function (tickValue, index, ticks) {
                 return tickValue;
               },
             },
           },
-          
         ],
         xAxes: [
           {
@@ -239,10 +239,10 @@ export default {
               fontColor: "gray",
               fontSize: 14,
               stepSize: 1,
-              callback: function(label = "") {
+              callback: function (label = "") {
                 const sub = label.substring(0, 10);
-                return `${label.length > 10 ? sub + "..." : sub}`;        
-              }
+                return `${label.length > 10 ? sub + "..." : sub}`;
+              },
             },
           },
         ],
@@ -336,9 +336,8 @@ export default {
       };
     },
     formatDataChartThird: (data = []) => {
+      const areas = [...new Set(data.map((elemento) => elemento["Area"]))];
 
-      const areas = [... new Set(data.map((elemento) => elemento["Area"]))];
-      
       const dataArea = areas.map((area) => {
         const quantity = data.filter((elemento) => {
           return elemento["Area"] === area;
@@ -351,7 +350,6 @@ export default {
       });
 
       let dataChart = dataArea.map((elemento) => elemento.quantity);
-
 
       return {
         labels: areas,
@@ -379,10 +377,9 @@ export default {
           },
         ],
       };
-    
     },
-    formatDataChartFour:(data =[]) => {
-      const tipos = [... new Set(data.map((elemento) => elemento["Tipo"]))];
+    formatDataChartFour: (data = []) => {
+      const tipos = [...new Set(data.map((elemento) => elemento["Tipo"]))];
 
       const dataTipo = tipos.map((tipo) => {
         const quantity = data.filter((elemento) => {
@@ -396,25 +393,23 @@ export default {
       });
 
       let dataChart = dataTipo.map((elemento) => elemento.quantity);
-      return (
-        {
-          labels: tipos,
-          datasets: [
-            {
-              label: "Quantidade por tipo de demanda",
-              backgroundColor: "transparent",
-              borderColor: "rgba(75,192,192,0.8)",
-              borderWidth: 1.5,
-              hoverBorderColor: "rgba(75,192,192,1)",
-              hoverBorderWidth: 2.5,
-              borderCapStyle: "butt",
-              borderDashOffset: 0.0,
-              data: dataChart,
-            },
-          ],
-        }
-      )
-    }
+      return {
+        labels: tipos,
+        datasets: [
+          {
+            label: "Quantidade por tipo de demanda",
+            backgroundColor: "transparent",
+            borderColor: "rgba(75,192,192,0.8)",
+            borderWidth: 1.5,
+            hoverBorderColor: "rgba(75,192,192,1)",
+            hoverBorderWidth: 2.5,
+            borderCapStyle: "butt",
+            borderDashOffset: 0.0,
+            data: dataChart,
+          },
+        ],
+      };
+    },
   },
   filtersInput: [
     {
