@@ -437,9 +437,12 @@ export default {
     {
       label: "Quantidade registros",
       identificador: "quantidadeRegistros",
-      type: "number",
+      // type: "number",
       required: false,
-      width: "200px",
+      width: "400px",
+      dataset: "group",
+      labelDataset: "groupDescription",
+      valueDataset: "groupPK.groupId",
       change: function (event) {
         console.log(event);
       },

@@ -10,7 +10,7 @@ function Settings() {
   const formRef = useRef(null);
 
   const initialData = {
-    email: "ch",
+
   };
 
   async function handleSubmit(data, { reset }) {
@@ -27,7 +27,7 @@ function Settings() {
       });
 
       reset();
-      
+
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const errorMessages = {};

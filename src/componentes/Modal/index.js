@@ -54,24 +54,69 @@ function Modal({ setModal, title }) {
   );
 
   useEffect(() => {
-    filtersInput.map(({
-      identificador,
-      dataset,
-    }) => {
-      if (dataset) {
 
-        getDataset(dataset)
-          .then((values) => {
-            setDataSelect({ ...dataSelect, [identificador]: values })
-          });
+    const inputDataset = filtersInput.filter((element) => element.dataset);
+    const newData = {};
 
-        //   setDataSelect({...dataSelect, {
-        //     [identificador]: 
-        //   }})
-        // }
+    const mountSelects = async () => {
+      try {
+
+        setLoading(true);
+        for (let input of inputDataset) {
+          const { identificador, dataset } = input;
+          const values = await getDataset(dataset);
+          console.log(values);
+          newData[identificador] = values;
+        }
+
+        setDataSelect(newData);
+
+      } catch (error) {
+
+      } finally {
+        setLoading(false);
       }
-    });
+
+    }
+
+    mountSelects();
+
+    // inputDataset.map(({
+    //   identificador,
+    //   dataset,
+    // }) => {
+    //   promises.push(getDataset(dataset));
+    //   identificadores.push(identificador);
+    // });
+
+
+
+    // console.log("Promises");
+    // console.log(promises);
+
+    // setLoading(true);
+
+    // Promise.allSettled(promises).then((values) => {
+    //   console.log("Values");
+    //   console.log(values);
+
+    //   const data = identificadores.map((elemento, indice) => {
+    //     return (
+    //       [
+    //         elemento,
+    //         values[indice]
+    //       ]
+    //     )
+    //   })
+    //   setDataSelect(Object.fromEntries(data));
+    //   setLoading(false);
+    // })
+    //   .catch((error) => {
+    //     toast.error(error);
+    //     setLoading(false);
+    //   })
   }, []);
+
 
   function handleChange({ target }) {
     const { value, id } = target;
@@ -152,9 +197,8 @@ function Modal({ setModal, title }) {
                             change(event);
                           }}
                         >
-                          {dataSelect[identificador].length > 0 && dataSelect[identificador].map((elemento) => <option value={elemento[valueDataset]}> {elemento[labelDataset]} </option>)}
+                          {dataSelect[identificador].length > 0 && dataSelect[identificador].map((elemento, indice) => <option key={indice} value={elemento[valueDataset]}> {elemento[labelDataset]} </option>)}
                           <option value="">Selecione uma opção</option>
-                          <option value="2">2</option>
                         </SelectModal>
                       )}
 
