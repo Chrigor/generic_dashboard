@@ -41,6 +41,7 @@ function Dashboard() {
     const configChartFour= formatDataChartFour(data);
     setChartFour(configChartFour);
 
+    console.log("Chamo de novo");
   }, [data]);
 
 

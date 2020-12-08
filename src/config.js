@@ -1,5 +1,4 @@
 import React from "react";
-
 import getMonthLabels from "./utils/getMonthLabels";
 
 export default {
@@ -416,7 +415,6 @@ export default {
     {
       label: "Processo",
       identificador: "process",
-      dataset: "ds_teste",
       type: "text",
       required: false,
       change: function (event) {
@@ -428,6 +426,9 @@ export default {
       label: "Responsável",
       identificador: "Responsavel",
       type: "text",
+      dataset: "colleague",
+      labelDataset: "colleagueName",
+      valueDataset: "colleagueName",
       required: false,
       change: function (event) {
         console.log(event);

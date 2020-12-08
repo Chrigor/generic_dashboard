@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Button from '../Button';
 import createConstraint from '../../utils/createConstraint';
 import {
@@ -44,6 +44,35 @@ function Modal({ setModal, title }) {
     }, {})
   );
 
+  const [dataSelect, setDataSelect] = useState(
+    filtersInput.reduce((acc, field) => {
+      return {
+        ...acc,
+        [field.identificador]: []
+      };
+    }, {})
+  );
+
+  useEffect(() => {
+    filtersInput.map(({
+      identificador,
+      dataset,
+    }) => {
+      if (dataset) {
+
+        getDataset(dataset)
+          .then((values) => {
+            setDataSelect({ ...dataSelect, [identificador]: values })
+          });
+
+        //   setDataSelect({...dataSelect, {
+        //     [identificador]: 
+        //   }})
+        // }
+      }
+    });
+  }, []);
+
   function handleChange({ target }) {
     const { value, id } = target;
     setForm({ ...form, [id]: value });
@@ -65,11 +94,8 @@ function Modal({ setModal, title }) {
       setLoading(true);
       try {
         const datasetName = Config.dataset;
-
-        console.log(datasetName);
-        console.log(constraints);
-
         const data = await getDataset(datasetName, constraints);
+
         dispatch(GRID_ADD_DATA(data));
         setModal(false);
       } catch (error) {
@@ -107,6 +133,8 @@ function Modal({ setModal, title }) {
                   required,
                   width,
                   constraintName,
+                  labelDataset,
+                  valueDataset
                 }) => {
                   return (
                     <ContainerInput key={identificador}>
@@ -124,6 +152,7 @@ function Modal({ setModal, title }) {
                             change(event);
                           }}
                         >
+                          {dataSelect[identificador].length > 0 && dataSelect[identificador].map((elemento) => <option value={elemento[valueDataset]}> {elemento[labelDataset]} </option>)}
                           <option value="">Selecione uma opção</option>
                           <option value="2">2</option>
                         </SelectModal>
