@@ -21,6 +21,3 @@ export const Container = styled.div`
   }
 `;
 
-export const ButtonSubmit = styled.button`
-
-`

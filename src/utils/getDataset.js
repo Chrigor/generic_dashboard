@@ -4,8 +4,8 @@ import auth from '../services/auth';
 import Config from '../config';
 
 const getDataset = async (datasetName = '', constraints = []) => {
- 
-  const { AUTH_CONSUMER_KEY_POST, AUTH_CONSUMER_SECRET_KEY_POST,AUTH_TOKEN_POST, AUTH_TOKEN_SECRET_POST} = Config;
+
+  const { modeDevelopment, AUTH_CONSUMER_KEY_POST, AUTH_CONSUMER_SECRET_KEY_POST, AUTH_TOKEN_POST, AUTH_TOKEN_SECRET_POST } = Config;
 
   try {
     const END_POINT = 'api/public/ecm/dataset/datasets';
@@ -25,10 +25,9 @@ const getDataset = async (datasetName = '', constraints = []) => {
       constraints,
     };
 
-    let {data} = await api.post(END_POINT, body, headers);
-    
+    let { data } = await api.post(END_POINT, body, modeDevelopment ? headers : {});
     return data.content.values;
-    
+
   } catch (error) {
     console.log(error);
     throw new Error('Erro ao Dataset');

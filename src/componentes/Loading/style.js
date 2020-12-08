@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   height: 100vh;
   width: 100vw;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
 
@@ -13,7 +13,11 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  z-index:99;
+  z-index: 100!important;
+
+  >div {
+    z-index:1!important;
+  }
 
   >div.lds-ring {
     display: inline-block;

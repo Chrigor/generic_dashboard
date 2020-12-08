@@ -5,6 +5,7 @@ import getMonthLabels from "./utils/getMonthLabels";
 export default {
   title: "Dashboard",
   titleSideBar: "Menu",
+  modeDevelopment: true,
   FLUIG_SERVER: "http://vipalnet-teste.vipal.com.br",
   AUTH_CONSUMER_KEY_POST: "consumerKey",
   AUTH_TOKEN_POST: "011278a6-e135-439b-9719-63fc4d8328b7",
@@ -24,7 +25,7 @@ export default {
           customBodyRender: function (value, tableMeta, updateValue) {
             const url = `http://vipalnet-teste.vipal.com.br/portal/p/1/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=${value} target="_blank"`;
 
-            return <a href={url}> {value}</a>;
+            return <a href={url}>{value}</a>;
           },
         },
       },
@@ -415,10 +416,9 @@ export default {
     {
       label: "Processo",
       identificador: "process",
-      constraintName: "process",
       dataset: "ds_teste",
       type: "text",
-      required: true,
+      required: false,
       change: function (event) {
         console.log(event);
       },
@@ -426,10 +426,9 @@ export default {
 
     {
       label: "Responsável",
-      identificador: "responsavel",
-      constraintName: "responsavel",
+      identificador: "Responsavel",
       type: "text",
-      required: true,
+      required: false,
       change: function (event) {
         console.log(event);
       },
@@ -437,7 +436,6 @@ export default {
     {
       label: "Quantidade registros",
       identificador: "quantidadeRegistros",
-      constraintName: "registros",
       type: "number",
       required: false,
       width: "200px",
@@ -448,9 +446,8 @@ export default {
     {
       label: "Data",
       identificador: "data",
-      constraintName: "dataLimite",
       type: "date",
-      required: true,
+      required: false,
       width: "200px",
       change: function (event) {
         console.log(event);

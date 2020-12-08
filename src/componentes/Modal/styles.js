@@ -105,8 +105,8 @@ export const ContainerInputs = styled.div`
 `
 
 export const ModalBody = styled.div`
-  padding: 12px 18px;
-  height: 90%;
+    padding: 12px 18px;
+    height: 90%;
 `;
 
 export const Form = styled.form`

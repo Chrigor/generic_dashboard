@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Form } from '@unform/web';
-import { Container, ButtonSubmit } from "./styles";
+import { Container } from "./styles";
 import * as Yup from 'yup';
 import Input from '../../componentes/Form/Input';
 import Button from '../../componentes/Button';
@@ -16,6 +16,7 @@ function Settings() {
   async function handleSubmit(data, { reset }) {
 
     try {
+
       const schema = Yup.object().shape({
         name: Yup.string().required("O nome é obrigatório"),
         email: Yup.string().email("Digite um e-mail válido").required("O email é obrigatório")
@@ -26,7 +27,7 @@ function Settings() {
       });
 
       reset();
-
+      
     } catch (error) {
       if (error instanceof Yup.ValidationError) {
         const errorMessages = {};
@@ -36,6 +37,9 @@ function Settings() {
 
         formRef.current.setErrors(errorMessages);
       }
+
+      console.log("Error");
+      console.log(error);
     }
   }
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Button from '../Button';
+import createConstraint from '../../utils/createConstraint';
 import {
   Container,
   ContainerBlur,
@@ -17,9 +18,21 @@ import {
   Title,
 } from "./styles";
 
+import { useDispatch } from "react-redux";
+
+import Loading from "../../componentes/Loading";
 import Config from "../../config";
 
+
+import getDataset from "../../utils/getDataset";
+import { GRID_ADD_DATA } from "../../store/reducers/Grid/actions";
+
+import { toast } from 'react-toastify';
+
 function Modal({ setModal, title }) {
+  const dispatch = useDispatch();
+
+  const [loading, setLoading] = useState(false);
   const { filtersInput } = Config;
 
   const [form, setForm] = useState(
@@ -33,20 +46,46 @@ function Modal({ setModal, title }) {
 
   function handleChange({ target }) {
     const { value, id } = target;
-    const nameConstraint = target.getAttribute("data-constraint-name");
-
-    console.log(nameConstraint);
     setForm({ ...form, [id]: value });
   }
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
 
-    console.log(form);
+    const constraints = [];
+
+    for (let key in form) {
+      if (form[key].length > 0) {
+        let constraint = createConstraint(key, form[key]);
+        constraints.push(constraint);
+      }
+    }
+
+    const getData = async () => {
+      setLoading(true);
+      try {
+        const datasetName = Config.dataset;
+
+        console.log(datasetName);
+        console.log(constraints);
+
+        const data = await getDataset(datasetName, constraints);
+        dispatch(GRID_ADD_DATA(data));
+        setModal(false);
+      } catch (error) {
+        toast.error("Houve um erro ao buscar os dados.");
+        console.log(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getData();
   }
 
   return (
     <Container>
+      {loading && <Loading />}
       <ContainerBlur />
       <ContainerModal>
         <Header>
