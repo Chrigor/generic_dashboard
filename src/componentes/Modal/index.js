@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-
+import Button from '../Button';
 import {
   Container,
-  Button,
   ContainerBlur,
   ContainerButtons,
   ContainerModal,

@@ -11,6 +11,7 @@ import {
   IconGrid,
   IconDashboard,
   IconMenu,
+  IconSettings
 } from "./styles";
 
 import Config from "../../config";
@@ -41,6 +42,12 @@ function SideBar() {
           <ItemList active={routeActive === "/dashboard" ? true : false}>
             <IconDashboard />
             Dashboard
+          </ItemList>
+        </Linker>
+        <Linker to="/settings" onClick={() => setRouteActive("/settings")}>
+          <ItemList active={routeActive === "/settings" ? true : false}>
+            <IconSettings />
+            Settings
           </ItemList>
         </Linker>
       </List>

@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 import { BsGrid1X2Fill } from "react-icons/bs";
-import { GoGraph, GoRocket } from "react-icons/go";
+import { GoGraph, GoRocket, GoSettings } from "react-icons/go";
 
 export const Container = styled.nav`
   grid-area: SB;
@@ -17,16 +17,6 @@ export const Container = styled.nav`
 
   min-width: 200px;
   max-height: 90vh;
-
-
-  /* @media (max-width: 1000px) {
-    width: 100%;
-    flex-direction: row;
-
-    align-items: center;
-    justify-content: space-around;
-    height: 50px;
-  } */
 `;
 
 export const ContainerHeader = styled.div`
@@ -99,6 +89,10 @@ export const IconMenu = styled(GoRocket)`
   ${cssIcon}
   color: var(--white);
   margin: 0 8px;
+`;
+
+export const IconSettings = styled(GoSettings)`
+  ${cssIcon}
 `;
 
 export const Linker = styled(Link)`
