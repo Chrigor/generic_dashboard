@@ -17,14 +17,20 @@ export default createGlobalStyle`
     width: 8px;
   }
   
-  ::-webkit-scrollbar-thumb {
-    background-color:var(--quinary);
-    border-radius:4px;
+    ::-webkit-scrollbar-thumb {
+      background-color:var(--quinary);
+      border-radius:4px;
+    }
+    ::-webkit-scrollbar-track {
+      background-color:var(--secondary);
+    }
   }
-  ::-webkit-scrollbar-track {
-    background-color:var(--secondary);
-  }
-  }
+
+  select[readonly], input:read-only {
+  background: var(--input-read-only); /*Simular campo inativo - Sugestão @GabrielRodrigues*/
+  pointer-events: none;
+  touch-action: none;
+}
 
   *, button, input {
     border:0;
@@ -55,5 +61,7 @@ export default createGlobalStyle`
     --link: #5d80d6;
 
     --border-white: rgba(255,255,255,0.7);
+    --input-read-only: #cccc;
   }
 `;
+

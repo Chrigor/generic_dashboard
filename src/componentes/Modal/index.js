@@ -82,7 +82,7 @@ function Modal({ setModal, title }) {
         setDataSelect(newData);
 
       } catch (error) {
-
+        toast.error("Houve um erro ao buscar dados do select.");
       } finally {
         setLoading(false);
       }
@@ -90,41 +90,6 @@ function Modal({ setModal, title }) {
     }
 
     mountSelects();
-
-    // inputDataset.map(({
-    //   identificador,
-    //   dataset,
-    // }) => {
-    //   promises.push(getDataset(dataset));
-    //   identificadores.push(identificador);
-    // });
-
-
-
-    // console.log("Promises");
-    // console.log(promises);
-
-    // setLoading(true);
-
-    // Promise.allSettled(promises).then((values) => {
-    //   console.log("Values");
-    //   console.log(values);
-
-    //   const data = identificadores.map((elemento, indice) => {
-    //     return (
-    //       [
-    //         elemento,
-    //         values[indice]
-    //       ]
-    //     )
-    //   })
-    //   setDataSelect(Object.fromEntries(data));
-    //   setLoading(false);
-    // })
-    //   .catch((error) => {
-    //     toast.error(error);
-    //     setLoading(false);
-    //   })
   }, []);
 
   function handleChange({ target }) {
@@ -217,22 +182,6 @@ function Modal({ setModal, title }) {
                             change(event);
                           }}
                         />
-
-                        // <SelectModal
-                        //   id={identificador}
-                        //   name={identificador}
-                        //   value={form[identificador]}
-                        //   required={required}
-                        //   width={width ? width : ""}
-                        //   data-constraint-name={constraintName}
-                        //   onChange={(event) => {
-                        //     handleChange(event);
-                        //     change(event);
-                        //   }}
-                        // >
-                        //   {dataSelect[identificador].length > 0 && dataSelect[identificador].map((elemento, indice) => <option key={indice} value={elemento[valueDataset]}> {elemento[labelDataset]} </option>)}
-                        //   <option value="">Selecione uma opção</option>
-                        // </SelectModal>
                       )}
 
                       {!dataset && (

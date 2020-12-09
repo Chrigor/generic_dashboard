@@ -12,6 +12,7 @@ export default {
   AUTH_TOKEN_SECRET_POST:
     "2412cb85-e1b6-49cc-adee-25a057ba17647ae99651-ef4f-4657-ac66-d309a879d5c2",
   dataset: "ds_ConsultaDB0003",
+  datasetUpdate: "ds_teste",
   grid: {
     titleGrid: "Process Example",
     columns: [
@@ -21,6 +22,7 @@ export default {
         options: {
           filter: false,
           sort: true,
+          editable: true,
           customBodyRender: function (value, tableMeta, updateValue) {
             const url = `http://vipalnet-teste.vipal.com.br/portal/p/1/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=${value} target="_blank"`;
 
@@ -56,6 +58,7 @@ export default {
         options: {
           filter: true,
           sort: true,
+          editable: true,
           customBodyRender: function (value, tableMeta, updateValue) {
             return <p>{value > 3 ? 1 : value}</p>;
           },
@@ -103,6 +106,11 @@ export default {
         options: {
           filter: true,
           sort: true,
+          type: "date",
+          editable: true,
+          dataset: "colleague",
+          labelDataset: "colleagueName",
+          valueDataset: "colleagueName",
         },
       },
       {
@@ -195,7 +203,7 @@ export default {
 
         return false;
       },
-      onRowClickCustom(rowData, rowMeta){
+      onRowClickCustom(rowData, rowMeta) {
         console.log(rowData);
         console.log(rowMeta);
       }
@@ -223,7 +231,7 @@ export default {
         yAxes: [
           {
             ticks: {
-              lineHeight:2,
+              lineHeight: 2,
               fontSize: 12,
               fontStyle: "bold",
               precision: 5,

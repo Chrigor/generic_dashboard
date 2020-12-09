@@ -8,13 +8,21 @@ import ModalEditableRow from "../../componentes/ModalEditableRow";
 
 function Grid() {
   const [modal, setModal] = useState(false);
+  const [dataEditable, setDataEditable] = useState({});
+
   const data = useSelector((state) => state.grid.data);
 
   const { grid } = Config;
   const { columns, titleGrid, options } = grid;
 
   options.onRowClick = function(rowData, rowMeta){
-    options.onRowClickCustom(rowData, rowMeta);
+    options.onRowClickCustom(rowData, rowMeta, columns);
+    const data = {
+      columns,
+      rowData,
+      rowMeta
+    }
+    setDataEditable(data);
     setModal(true);
   }
 
@@ -26,7 +34,7 @@ function Grid() {
         columns={columns}
         options={options}
       />
-      {modal && <ModalEditableRow setModal={setModal} />}
+      {modal && <ModalEditableRow setModal={setModal} data={dataEditable}/>}
     </Container>
   );
 }
