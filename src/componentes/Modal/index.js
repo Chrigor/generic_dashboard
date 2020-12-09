@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Select from 'react-select';
+
 import Button from '../Button';
 import createConstraint from '../../utils/createConstraint';
 import {
@@ -63,10 +65,18 @@ function Modal({ setModal, title }) {
 
         setLoading(true);
         for (let input of inputDataset) {
-          const { identificador, dataset } = input;
+          console.log("Input");
+          console.log(input);
+
+          const { labelDataset, valueDataset, identificador, dataset } = input;
           const values = await getDataset(dataset);
-          console.log(values);
-          newData[identificador] = values;
+          const valuesFormatted = values.map((elemento) => {
+            return {
+              label: elemento[labelDataset],
+              value: elemento[valueDataset]
+            }
+          });
+          newData[identificador] = valuesFormatted;
         }
 
         setDataSelect(newData);
@@ -117,7 +127,6 @@ function Modal({ setModal, title }) {
     //   })
   }, []);
 
-
   function handleChange({ target }) {
     const { value, id } = target;
     setForm({ ...form, [id]: value });
@@ -129,11 +138,15 @@ function Modal({ setModal, title }) {
     const constraints = [];
 
     for (let key in form) {
+      console.log(form[key]);
       if (form[key].length > 0) {
         let constraint = createConstraint(key, form[key]);
         constraints.push(constraint);
       }
     }
+
+    console.log("Constraint");
+    console.log(constraints);
 
     const getData = async () => {
       setLoading(true);
@@ -143,6 +156,10 @@ function Modal({ setModal, title }) {
 
         dispatch(GRID_ADD_DATA(data));
         setModal(false);
+
+        console.log("VALUES");
+        console.log(data);
+
       } catch (error) {
         toast.error("Houve um erro ao buscar os dados.");
         console.log(error);
@@ -185,21 +202,37 @@ function Modal({ setModal, title }) {
                     <ContainerInput key={identificador}>
                       <LabelModal>{label}</LabelModal>
                       {dataset && (
-                        <SelectModal
-                          id={identificador}
-                          name={identificador}
-                          value={form[identificador]}
-                          required={required}
-                          width={width ? width : ""}
-                          data-constraint-name={constraintName}
-                          onChange={(event) => {
+
+                        <Select
+                          label="Single select"
+                          options={dataSelect[identificador]}
+                          onChange={({ value }) => {
+                            const event = {
+                              target: {
+                                value,
+                                id: identificador
+                              }
+                            }
                             handleChange(event);
                             change(event);
                           }}
-                        >
-                          {dataSelect[identificador].length > 0 && dataSelect[identificador].map((elemento, indice) => <option key={indice} value={elemento[valueDataset]}> {elemento[labelDataset]} </option>)}
-                          <option value="">Selecione uma opção</option>
-                        </SelectModal>
+                        />
+
+                        // <SelectModal
+                        //   id={identificador}
+                        //   name={identificador}
+                        //   value={form[identificador]}
+                        //   required={required}
+                        //   width={width ? width : ""}
+                        //   data-constraint-name={constraintName}
+                        //   onChange={(event) => {
+                        //     handleChange(event);
+                        //     change(event);
+                        //   }}
+                        // >
+                        //   {dataSelect[identificador].length > 0 && dataSelect[identificador].map((elemento, indice) => <option key={indice} value={elemento[valueDataset]}> {elemento[labelDataset]} </option>)}
+                        //   <option value="">Selecione uma opção</option>
+                        // </SelectModal>
                       )}
 
                       {!dataset && (
