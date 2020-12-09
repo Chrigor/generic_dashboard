@@ -195,6 +195,10 @@ export default {
 
         return false;
       },
+      onRowClickCustom(rowData, rowMeta){
+        console.log(rowData);
+        console.log(rowMeta);
+      }
     },
   },
   dashboard: {
@@ -426,23 +430,36 @@ export default {
       label: "Responsável",
       identificador: "Responsavel",
       type: "text",
-      dataset: "colleague",
-      labelDataset: "colleagueName",
-      valueDataset: "colleagueName",
+      dataset: "ds_responsaveis_TI_pg-0001",
+      labelDataset: "Analista",
+      valueDataset: "Analista",
       required: false,
       change: function (event) {
         console.log(event);
       },
     },
     {
-      label: "Quantidade registros",
-      identificador: "quantidadeRegistros",
+      label: "Area",
+      identificador: "Area",
       // type: "number",
       required: false,
       width: "400px",
-      dataset: "group",
-      labelDataset: "groupDescription",
-      valueDataset: "groupPK.groupId",
+      dataset: "ds_area_pg-0001",
+      labelDataset: "Area",
+      valueDataset: "Area",
+      change: function (event) {
+        console.log(event);
+      },
+    },
+    {
+      label: "Etapa",
+      identificador: "Etapa",
+      // type: "number",
+      required: false,
+      width: "400px",
+      dataset: "ds_etapa_pg-0001",
+      labelDataset: "Etapa",
+      valueDataset: "Etapa",
       change: function (event) {
         console.log(event);
       },
