@@ -64,7 +64,6 @@ export default {
           },
         },
       },
-
       {
         name: "Status",
         label: "Status",
@@ -79,6 +78,10 @@ export default {
         options: {
           filter: true,
           sort: true,
+          editable:true,
+          dataset: "ds_area_pg-0001",
+          labelDataset: "Area",
+          valueDataset: "Area",
           // customBodyRender: function (value, tableMeta, updateValue) {
           //   return <p> eae {value}</p>;
           // }

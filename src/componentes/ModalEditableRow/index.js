@@ -129,11 +129,13 @@ function Modal({ setModal, data }) {
         constraints.push(constraint);
       }
 
+      console.log("Constraints");
+      console.log(constraints);
+
       const data = await getDataset(Config["datasetUpdate"], constraints);
 
       setModal(false);
       toast.success("Dados atualizados com sucesso!");
-
     } catch (error) {
       toast.error("Houve um erro ao atualizar os dados do dashboard");
     } finally {
