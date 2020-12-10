@@ -26,7 +26,7 @@ function Dashboard() {
   const [chartFour, setChartFour] = useState({});
 
   const { dashboard } = Config;
-  const { options, formatDataChartMain, formatDataChartSecond, formatDataChartThird, formatDataChartFour} = dashboard;
+  const { options, formatDataChartMain, formatDataChartSecond, formatDataChartThird, formatDataChartFour, titleChartMain, titleChartSecond, titleChartThird, titleChartFour } = dashboard;
 
   useEffect(() => {
     const configCharMain = formatDataChartMain(data);
@@ -35,10 +35,10 @@ function Dashboard() {
     const configChartSecond = formatDataChartSecond(data);
     setChartSecond(configChartSecond);
 
-    const configChartThird= formatDataChartThird(data);
+    const configChartThird = formatDataChartThird(data);
     setChartThird(configChartThird);
 
-    const configChartFour= formatDataChartFour(data);
+    const configChartFour = formatDataChartFour(data);
     setChartFour(configChartFour);
 
     console.log("Chamo de novo");
@@ -51,7 +51,7 @@ function Dashboard() {
         <ContainerChart>
           <Header>
             <SubtitleChart>Total</SubtitleChart>
-            <TitleChart>Total de ocorrencias por mês</TitleChart>
+            <TitleChart>{titleChartMain}</TitleChart>
           </Header>
           <LineChart height={65} data={chartMain} options={options} />
         </ContainerChart>
@@ -60,10 +60,10 @@ function Dashboard() {
       <Row>
         <ContainerChart>
           <Header>
-            <SubtitleChart>Total Status</SubtitleChart>
+            <SubtitleChart>Total {titleChartSecond}</SubtitleChart>
             <TitleChart>
               <IconNotify />
-              Status
+              {titleChartSecond}
             </TitleChart>
           </Header>
           <BarChart height={80} data={chartSecond} options={options} />
@@ -71,10 +71,10 @@ function Dashboard() {
 
         <ContainerChart>
           <Header>
-            <SubtitleChart>Total por Area</SubtitleChart>
+            <SubtitleChart>Total por {titleChartThird}</SubtitleChart>
             <TitleChart>
               <IconCommand />
-              Areas
+              {titleChartThird}
             </TitleChart>
           </Header>
           <LineChart height={80} data={chartThird} options={options} />
@@ -82,10 +82,10 @@ function Dashboard() {
 
         <ContainerChart>
           <Header>
-            <SubtitleChart>Total</SubtitleChart>
+            <SubtitleChart>Total por {titleChartFour}</SubtitleChart>
             <TitleChart>
               <IconChart />
-              Tipos
+              {titleChartFour}
             </TitleChart>
           </Header>
           <BarChart height={80} data={chartFour} options={options} />
